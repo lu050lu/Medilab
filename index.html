@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="theme-color" content="#101820">
+
+  <title>MEDILAB</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #101820;
+      color: #d8e4ed;
+      font-family: monospace;
+    }
+
+    header {
+      background: #182733;
+      padding: 20px;
+      border-bottom: 1px solid #3a566b;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .dossier {
+      background: #182733;
+      border: 1px solid #3a566b;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+
+    button, input {
+      padding: 12px;
+      background: #263e50;
+      color: white;
+      border: 1px solid #6b91aa;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    #secret {
+      display: none;
+    }
+
+    .indice {
+      color: #8ce0a1;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  MEDILAB
+  <div>LABORATOIRE MÉDICO-LÉGAL</div>
+</header>
+
+<main>
+
+  <h2>Session 04</h2>
+  <p>Enquête n° 047 : disparition au laboratoire.</p>
+
+  <div class="dossier">
+    <h3>📄 Rapport d'enquête</h3>
+    <p>Une disparition a été signalée le 12 octobre.</p>
+    <p>Le docteur Martin était présent au laboratoire.</p>
+  </div>
+
+  <div class="dossier">
+    <h3>📁 Preuves</h3>
+    <p>Preuve A : une montre arrêtée à 22h15.</p>
+    <p>Preuve B : une photographie déchirée.</p>
+    <p>Preuve C : un message codé.</p>
+  </div>
+
+  <div class="dossier">
+    <h3>🔒 Dossier confidentiel</h3>
+    <p>Entrez le code découvert pendant l'enquête :</p>
+
+    <input id="code" type="password"
+      placeholder="Code secret">
+
+    <button onclick="verifierCode()">
+      Déverrouiller
+    </button>
+
+    <p id="message"></p>
+  </div>
+
+  <div class="dossier" id="secret">
+    <h3>Accès autorisé</h3>
+    <p>Le docteur Martin a quitté le laboratoire à 22h15.</p>
+    <p>Une deuxième personne était présente.</p>
+    <p class="indice">Indice : cherchez le registre des entrées.</p>
+  </div>
+
+</main>
+
+<script>
+  function verifierCode() {
+    const code = document.getElementById("code").value;
+
+    if (code === "2215") {
+      document.getElementById("secret").style.display = "block";
+      document.getElementById("message").textContent =
+        "Dossier déverrouillé.";
+    } else {
+      document.getElementById("message").textContent =
+        "Code incorrect.";
+    }
+  }
+</script>
+
+</body>
+</html>
